@@ -1,1 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlautla · Estado de México | Pueblo Mágico</title>
+  <!-- Google Fonts para estilo moderno -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fbf9f4;
+      color: #2c3e2f;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* ----- HERO SECTION con imagen Popocatépetl_desde_Atlautla.JPG ----- */
+    .hero {
+      position: relative;
+      height: 90vh;
+      min-height: 600px;
+      background-image: url('Popocatépetl_desde_Atlautla.JPG');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(20, 40, 20, 0.65), rgba(0, 0, 0, 0.5));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      padding: 2rem;
+      backdrop-filter: blur(2px);
+      animation: fadeUp 1s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content .subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid rgba(255,255,255,0.5);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-content .tagline {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.35);
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      font-weight: 500;
+    }
+
+    .hero-content .tagline i {
+      margin-right: 10px;
+      color: #ffd966;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ----- CONTENEDOR PRINCIPAL ----- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ----- SECCIÓN PUEBLO MÁGICO ----- */
+    .pueblo-magico {
+      background: linear-gradient(145deg, #f0f7ea 0%, #e2efe0 100%);
+      padding: 4rem 0;
+      border-bottom: 1px solid #bcd9b4;
+    }
+
+    .pueblo-magico h2 {
+      font-size: 2.8rem;
+      color: #1e4a2b;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .pueblo-magico .section-subhead {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #3a5e3a;
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      font-style: italic;
+    }
+
+    .requisitos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .requisito-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 12px 30px rgba(0, 30, 0, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 6px solid #4d8b4d;
+    }
+
+    .requisito-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px rgba(20, 70, 20, 0.15);
+    }
+
+    .requisito-card i {
+      font-size: 2.4rem;
+      color: #2d6a4f;
+      margin-bottom: 1rem;
+    }
+
+    .requisito-card h3 {
+      font-size: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: #1b3b1b;
+      margin-bottom: 0.8rem;
+    }
+
+    .requisito-card p {
+      color: #2d3e2d;
+      font-size: 1rem;
+    }
+
+    .nota-pueblo {
+      margin-top: 3.5rem;
+      background: #d9e8d4;
+      padding: 1.8rem 2.2rem;
+      border-radius: 40px;
+      font-size: 1.15rem;
+      color: #14381e;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px dashed #5a8f5a;
+    }
+
+    .nota-pueblo i {
+      color: #3b6e3b;
+      margin-right: 10px;
+    }
+
+    /* ----- SECCIÓN LIDERAZGO / GOBIERNO ----- */
+    .liderazgo {
+      padding: 4.5rem 0;
+      background-color: #ffffff;
+    }
+
+    .liderazgo h2 {
+      font-size: 2.8rem;
+      color: #1e3b1e;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .liderazgo .section-subhead {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #4e6b4e;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .liderazgo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .info-gobierno {
+      background: #f3f8f0;
+      padding: 2rem 2.2rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+    }
+
+    .info-gobierno h3 {
+      font-size: 1.9rem;
+      color: #144d1e;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .info-gobierno h3 i {
+      color: #226b2e;
+    }
+
+    .presidente-destacado {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid #c3ddbc;
+    }
+
+    .presidente-destacado .nombre {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0f3b0f;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .presidente-destacado .periodo {
+      font-weight: 600;
+      color: #2e6b2e;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .presidente-destacado .partido {
+      display: inline-block;
+      background: #d0e4ca;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e4a1e;
+      margin-top: 0.5rem;
+    }
+
+    .cabildo-lista {
+      list-style: none;
+      margin: 1.5rem 0 0.5rem 0;
+    }
+
+    .cabildo-lista li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #d6e6d0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+    }
+
+    .cabildo-lista li i {
+      color: #3c7a3c;
+      width: 20px;
+      font-size: 1rem;
+    }
+
+    .historial-presidentes {
+      background: #f3f8f0;
+      padding: 2rem 2.2rem;
+      border-radius: 28px;
+    }
+
+    .historial-presidentes h3 {
+      font-size: 1.9rem;
+      color: #144d1e;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .historial-presidentes ul {
+      list-style: none;
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .historial-presidentes li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #dbecd6;
+      font-size: 0.98rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .historial-presidentes .ano {
+      font-weight: 700;
+      color: #1f5f1f;
+      min-width: 110px;
+    }
+
+    .historial-presidentes .nombre-presi {
+      font-weight: 500;
+      color: #1c2e1c;
+    }
+
+    .historial-presidentes .partido-p {
+      color: #2f5e2f;
+      font-size: 0.85rem;
+      background: #e3f0dd;
+      padding: 0.1rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      background-color: #152e15;
+      color: #d9e8d4;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer i {
+      color: #b1d8a8;
+      margin: 0 6px;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 800px) {
+      .liderazgo-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero {
+        min-height: 500px;
+      }
+      .pueblo-magico h2, .liderazgo h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .requisito-card {
+        padding: 1.5rem;
+      }
+      .hero-content .tagline {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO con imagen del Popocatépetl desde Atlautla -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Atlautla</h1>
+      <div class="subtitle">Estado de México · Faldas del Popocatépetl</div>
+      <div class="tagline">
+        <i class="fas fa-mountain"></i> “Lugar donde abundan las barrancas”
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PUEBLO MÁGICO con requisitos -->
+  <section class="pueblo-magico">
+    <div class="container">
+      <h2>Convirtiendo a Atlautla en Pueblo Mágico</h2>
+      <p class="section-subhead">
+        Un sueño que avanza con la riqueza natural, cultural e histórica del municipio.
+      </p>
+
+      <div class="requisitos-grid">
+        <!-- Requisito 1 -->
+        <div class="requisito-card">
+          <i class="fas fa-landmark"></i>
+          <h3>Patrimonio cultural</h3>
+          <p>Contar con un legado histórico y cultural relevante: zonas arqueológicas, templos coloniales, fiestas y tradiciones únicas.</p>
+        </div>
+        <!-- Requisito 2 -->
+        <div class="requisito-card">
+          <i class="fas fa-tree"></i>
+          <h3>Riqueza natural</h3>
+          <p>Entorno natural privilegiado, como las faldas del Popocatépetl, bosques, barrancas y paisajes que atraen al turismo.</p>
+        </div>
+        <!-- Requisito 3 -->
+        <div class="requisito-card">
+          <i class="fas fa-hotel"></i>
+          <h3>Infraestructura turística</h3>
+          <p>Servicios de hospedaje, gastronomía, guías y señalización que garanticen una experiencia cómoda y segura.</p>
+        </div>
+        <!-- Requisito 4 -->
+        <div class="requisito-card">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h3>Participación comunitaria</h3>
+          <p>Compromiso de la población y autoridades para preservar el patrimonio, limpieza, seguridad y promoción turística.</p>
+        </div>
+        <!-- Requisito 5 -->
+        <div class="requisito-card">
+          <i class="fas fa-file-alt"></i>
+          <h3>Plan de desarrollo turístico</h3>
+          <p>Documento rector que incluya diagnóstico, estrategias, metas y acciones para el desarrollo sostenible del municipio.</p>
+        </div>
+        <!-- Requisito 6 -->
+        <div class="requisito-card">
+          <i class="fas fa-calendar-check"></i>
+          <h3>Agenda cultural anual</h3>
+          <p>Eventos, festivales y actividades que rescaten y difundan la identidad atlautina durante todo el año.</p>
+        </div>
+      </div>
+
+      <div class="nota-pueblo">
+        <i class="fas fa-bullhorn"></i> Atlautla cumple con varios de estos criterios; el trabajo conjunto busca la denominación oficial como Pueblo Mágico.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN LIDERAZGO / GOBIERNO MUNICIPAL -->
+  <section class="liderazgo">
+    <div class="container">
+      <h2>Liderazgo y Gobierno Municipal</h2>
+      <p class="section-subhead">Autoridades que trabajan por el desarrollo de Atlautla</p>
+
+      <div class="liderazgo-grid">
+        <!-- Columna izquierda: Presidente y cabildo -->
+        <div class="info-gobierno">
+          <h3><i class="fas fa-user-tie"></i> Presidente Municipal</h3>
+          <div class="presidente-destacado">
+            <div class="nombre">Lucas Torres Rosales</div>
+            <div class="periodo">Periodo 2024 – 2027</div>
+            <div class="partido">Presidente en funciones</div>
+          </div>
+
+          <h3 style="font-size: 1.5rem; margin-top: 1.5rem;"><i class="fas fa-users"></i> Cabildo</h3>
+          <ul class="cabildo-lista">
+            <li><i class="fas fa-check-circle"></i> 1 Síndico Municipal</li>
+            <li><i class="fas fa-check-circle"></i> 10 Regidores: 6 por mayoría relativa</li>
+            <li><i class="fas fa-check-circle"></i> 4 Regidores por representación proporcional</li>
+            <li><i class="fas fa-check-circle"></i> Período de tres años, no reelegibles de forma consecutiva</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.95rem; background: #e3f0dd; padding: 0.8rem 1rem; border-radius: 16px;">
+            <i class="fas fa-info-circle"></i> El Ayuntamiento inicia funciones el 1 de enero del año siguiente a la elección.
+          </p>
+        </div>
+
+        <!-- Columna derecha: Historial de presidentes -->
+        <div class="historial-presidentes">
+          <h3><i class="fas fa-history"></i> Presidentes Municipales</h3>
+          <ul>
+            <li><span class="ano">2022 – 2024</span> <span class="nombre-presi">Raúl Navarro Rivera</span> <span class="partido-p">PRD</span></li>
+            <li><span class="ano">2018 – 2021</span> <span class="nombre-presi">Dolores Hermenegildo Lozada Amaro</span> <span class="partido-p">VIA RADICAL/MORENA</span></li>
+            <li><span class="ano">2015 – 2018</span> <span class="nombre-presi">Mauro Sánchez Marín</span> <span class="partido-p">PRI</span></li>
+            <li><span class="ano">2012 – 2015</span> <span class="nombre-presi">Raúl Navarro Rivera</span> <span class="partido-p">PAN</span></li>
+            <li><span class="ano">2009 – 2012</span> <span class="nombre-presi">María del Carmen Carreño García</span> <span class="partido-p">PRI</span></li>
+            <li><span class="ano">2006 – 2009</span> <span class="nombre-presi">Raúl Navarro Rivera</span> <span class="partido-p">PAN</span></li>
+            <li><span class="ano">2003 – 2006</span> <span class="nombre-presi">Ángel Marín Barragán</span> <span class="partido-p">PRI</span></li>
+            <li><span class="ano">2000 – 2003</span> <span class="nombre-presi">Francisco Javier Torres Bautista</span> <span class="partido-p">PRI</span></li>
+            <li><span class="ano">1997 – 2000</span> <span class="nombre-presi">Calixto Granados Villanueva</span> <span class="partido-p">PRD</span></li>
+            <li><span class="ano">1995 – 1996</span> <span class="nombre-presi">Ángel Marín Barragán</span> <span class="partido-p">PRI</span></li>
+            <li><span class="ano">1994 – 1995</span> <span class="nombre-presi">Luis Martínez Bautista</span> <span class="partido-p">PRI</span></li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: #3f623f;"><i class="fas fa-database"></i> Fuente: Wikipedia / INAFED</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><i class="fas fa-mountain"></i> Atlautla, Estado de México — “Lugar donde abundan las barrancas” <i class="fas fa-mountain"></i></p>
+    <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">
+      Información basada en datos oficiales y en la riqueza cultural de la región.
+    </p>
+  </footer>
+
+</body>
+</html>
