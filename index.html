@@ -1,14 +1,16 @@
+Here is the updated HTML code for the Atlautla website. It now uses `popohero.jpg` for the hero image and incorporates the new `arcos.jpg`, `atlautlalogo.jpg`, and `palacioatlautla.jpg` images into a redesigned, visually richer layout with a refined color palette and structure.
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atlautla · Estado de México | Pueblo Mágico</title>
-  <!-- Google Fonts para estilo moderno -->
+  <title>Atlautla · Estado de México | Pueblo Mágico en camino</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome para íconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -17,27 +19,42 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --verde-profundo: #143d1f;
+      --verde-bosque: #1f5e2a;
+      --verde-vivo: #2e7d32;
+      --verde-suave: #c8e6c9;
+      --tierra: #795548;
+      --arena: #f5f2e9;
+      --crema: #fdfaf3;
+      --dorado: #d4a017;
+      --sombra-suave: 0 12px 30px rgba(0, 30, 0, 0.08);
+      --sombra-fuerte: 0 20px 40px rgba(0, 40, 0, 0.15);
+      --radio: 24px;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #fbf9f4;
-      color: #2c3e2f;
-      line-height: 1.6;
+      background-color: var(--crema);
+      color: #1e2e1e;
+      line-height: 1.65;
     }
 
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
+      line-height: 1.2;
     }
 
-    /* ----- HERO SECTION con imagen Popocatépetl_desde_Atlautla.JPG ----- */
+    /* ========== HERO ========== */
     .hero {
       position: relative;
-      height: 90vh;
-      min-height: 600px;
-      background-image: url('Popocatépetl_desde_Atlautla.JPG');
+      height: 92vh;
+      min-height: 620px;
+      background-image: url('popohero.jpg');
       background-size: cover;
-      background-position: center 30%;
+      background-position: center 35%;
       background-repeat: no-repeat;
       display: flex;
       align-items: center;
@@ -51,59 +68,104 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(20, 40, 20, 0.65), rgba(0, 0, 0, 0.5));
+      background: linear-gradient(
+        160deg,
+        rgba(10, 30, 15, 0.75) 0%,
+        rgba(20, 50, 25, 0.55) 40%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1000px;
+      max-width: 1100px;
       padding: 2rem;
-      backdrop-filter: blur(2px);
-      animation: fadeUp 1s ease-out;
+      animation: fadeUp 1.2s ease-out;
+    }
+
+    .hero-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.5));
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.4);
+      padding: 4px;
+      background: rgba(255,255,255,0.08);
     }
 
     .hero-content h1 {
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      line-height: 1.1;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+      font-size: clamp(3.2rem, 9vw, 6rem);
+      font-weight: 900;
+      text-shadow: 0 6px 25px rgba(0,0,0,0.55);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.03em;
+      color: #ffffff;
     }
 
     .hero-content .subtitle {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-size: clamp(1.1rem, 2.8vw, 1.6rem);
       font-weight: 400;
       font-family: 'Inter', sans-serif;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid rgba(255,255,255,0.5);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #e8f5e0;
+      border-bottom: 2px solid rgba(255,255,255,0.35);
       display: inline-block;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.6rem;
     }
 
     .hero-content .tagline {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: rgba(0, 0, 0, 0.35);
-      padding: 0.8rem 1.8rem;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      max-width: 720px;
+      margin: 0 auto 2rem auto;
+      background-color: rgba(255, 255, 255, 0.12);
+      padding: 1rem 2rem;
       border-radius: 60px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
       font-weight: 500;
+      color: #f0f7ec;
     }
 
     .hero-content .tagline i {
+      margin-right: 12px;
+      color: var(--dorado);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--verde-vivo);
+      color: white;
+      padding: 0.9rem 2.4rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0,80,0,0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-cta:hover {
+      background: var(--verde-profundo);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0,60,0,0.5);
+    }
+
+    .hero-cta i {
       margin-right: 10px;
-      color: #ffd966;
     }
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -111,68 +173,155 @@
       }
     }
 
-    /* ----- CONTENEDOR PRINCIPAL ----- */
+    /* ========== CONTENEDOR ========== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* ----- SECCIÓN PUEBLO MÁGICO ----- */
-    .pueblo-magico {
-      background: linear-gradient(145deg, #f0f7ea 0%, #e2efe0 100%);
-      padding: 4rem 0;
-      border-bottom: 1px solid #bcd9b4;
+    /* ========== SECCIONES GENERALES ========== */
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      color: var(--verde-profundo);
+      text-align: center;
+      margin-bottom: 0.6rem;
     }
 
-    .pueblo-magico h2 {
-      font-size: 2.8rem;
-      color: #1e4a2b;
+    .section-subhead {
       text-align: center;
-      margin-bottom: 0.8rem;
-    }
-
-    .pueblo-magico .section-subhead {
-      text-align: center;
-      font-size: 1.3rem;
-      color: #3a5e3a;
-      max-width: 800px;
+      font-size: 1.2rem;
+      color: #3f5c3f;
+      max-width: 760px;
       margin: 0 auto 3rem auto;
       font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ========== SECCIÓN IMÁGENES DESTACADAS ========== */
+    .galeria-destacada {
+      padding: 4.5rem 0 3rem 0;
+      background: linear-gradient(180deg, var(--crema) 0%, #f1f7ec 100%);
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .galeria-item {
+      position: relative;
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background: #fff;
+    }
+
+    .galeria-item:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--sombra-fuerte);
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      aspect-ratio: 16 / 10;
+      transition: transform 0.5s ease;
+    }
+
+    .galeria-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .galeria-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(10, 30, 10, 0.85));
+      color: white;
+      padding: 2.5rem 1.5rem 1.2rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .galeria-item .caption i {
+      margin-right: 8px;
+      color: var(--dorado);
+    }
+
+    /* ========== SECCIÓN PUEBLO MÁGICO ========== */
+    .pueblo-magico {
+      background: linear-gradient(145deg, #e8f1e4 0%, #d5e8d0 100%);
+      padding: 5rem 0;
+      border-top: 1px solid #b8d8b0;
+      border-bottom: 1px solid #b8d8b0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pueblo-magico::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(46, 125, 50, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .requisitos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .requisito-card {
-      background: white;
-      border-radius: 24px;
-      padding: 2rem 1.8rem;
-      box-shadow: 0 12px 30px rgba(0, 30, 0, 0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border-left: 6px solid #4d8b4d;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: var(--radio);
+      padding: 2.2rem 1.8rem;
+      box-shadow: var(--sombra-suave);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.7);
+      border-left: 6px solid var(--verde-vivo);
     }
 
     .requisito-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 35px rgba(20, 70, 20, 0.15);
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-fuerte);
+      background: #ffffff;
     }
 
     .requisito-card i {
-      font-size: 2.4rem;
-      color: #2d6a4f;
+      font-size: 2.6rem;
+      color: var(--verde-bosque);
       margin-bottom: 1rem;
+      background: #e2f0dd;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
     }
 
     .requisito-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      color: #1b3b1b;
+      color: var(--verde-profundo);
       margin-bottom: 0.8rem;
     }
 
@@ -183,42 +332,28 @@
 
     .nota-pueblo {
       margin-top: 3.5rem;
-      background: #d9e8d4;
-      padding: 1.8rem 2.2rem;
-      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 1.8rem 2.5rem;
+      border-radius: 60px;
       font-size: 1.15rem;
-      color: #14381e;
+      color: var(--verde-profundo);
       text-align: center;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      border: 1px dashed #5a8f5a;
+      border: 1px dashed var(--verde-vivo);
+      backdrop-filter: blur(4px);
     }
 
     .nota-pueblo i {
-      color: #3b6e3b;
+      color: var(--verde-vivo);
       margin-right: 10px;
     }
 
-    /* ----- SECCIÓN LIDERAZGO / GOBIERNO ----- */
+    /* ========== SECCIÓN LIDERAZGO ========== */
     .liderazgo {
-      padding: 4.5rem 0;
-      background-color: #ffffff;
-    }
-
-    .liderazgo h2 {
-      font-size: 2.8rem;
-      color: #1e3b1e;
-      text-align: center;
-      margin-bottom: 0.8rem;
-    }
-
-    .liderazgo .section-subhead {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #4e6b4e;
-      max-width: 700px;
-      margin: 0 auto 3rem auto;
+      padding: 5rem 0;
+      background: var(--crema);
     }
 
     .liderazgo-grid {
@@ -229,56 +364,71 @@
     }
 
     .info-gobierno {
-      background: #f3f8f0;
-      padding: 2rem 2.2rem;
-      border-radius: 28px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      background: #ffffff;
+      padding: 2.4rem 2.2rem;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra-suave);
+      border: 1px solid #e0eedb;
     }
 
     .info-gobierno h3 {
-      font-size: 1.9rem;
-      color: #144d1e;
+      font-size: 1.8rem;
+      color: var(--verde-profundo);
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 12px;
-    }
-
-    .info-gobierno h3 i {
-      color: #226b2e;
-    }
-
-    .presidente-destacado {
-      background: white;
-      border-radius: 20px;
-      padding: 1.5rem 1.8rem;
-      margin-bottom: 2rem;
-      border: 1px solid #c3ddbc;
-    }
-
-    .presidente-destacado .nombre {
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #0f3b0f;
       font-family: 'Playfair Display', serif;
     }
 
-    .presidente-destacado .periodo {
+    .info-gobierno h3 i {
+      color: var(--verde-vivo);
+    }
+
+    .presidente-destacado {
+      background: linear-gradient(135deg, #f0f7ec, #e2efe0);
+      border-radius: 20px;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid #c3ddbc;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .presidente-destacado .foto-palacio {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--verde-vivo);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .presidente-destacado .info-texto .nombre {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--verde-profundo);
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    .presidente-destacado .info-texto .periodo {
       font-weight: 600;
-      color: #2e6b2e;
-      font-size: 1.1rem;
+      color: var(--verde-bosque);
+      font-size: 1.05rem;
       letter-spacing: 0.5px;
     }
 
-    .presidente-destacado .partido {
+    .presidente-destacado .info-texto .partido {
       display: inline-block;
-      background: #d0e4ca;
+      background: var(--verde-suave);
       padding: 0.2rem 1rem;
       border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #1e4a1e;
-      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--verde-profundo);
+      margin-top: 0.4rem;
     }
 
     .cabildo-lista {
@@ -287,8 +437,8 @@
     }
 
     .cabildo-lista li {
-      padding: 0.55rem 0;
-      border-bottom: 1px solid #d6e6d0;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid #e0eedb;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -296,69 +446,165 @@
     }
 
     .cabildo-lista li i {
-      color: #3c7a3c;
+      color: var(--verde-vivo);
       width: 20px;
       font-size: 1rem;
     }
 
     .historial-presidentes {
-      background: #f3f8f0;
-      padding: 2rem 2.2rem;
-      border-radius: 28px;
+      background: #ffffff;
+      padding: 2.4rem 2.2rem;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra-suave);
+      border: 1px solid #e0eedb;
     }
 
     .historial-presidentes h3 {
-      font-size: 1.9rem;
-      color: #144d1e;
+      font-size: 1.8rem;
+      color: var(--verde-profundo);
       margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
       gap: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .historial-presidentes h3 i {
+      color: var(--verde-vivo);
     }
 
     .historial-presidentes ul {
       list-style: none;
-      max-height: 400px;
+      max-height: 420px;
       overflow-y: auto;
-      padding-right: 6px;
+      padding-right: 8px;
+    }
+
+    .historial-presidentes ul::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .historial-presidentes ul::-webkit-scrollbar-thumb {
+      background: var(--verde-suave);
+      border-radius: 10px;
     }
 
     .historial-presidentes li {
       padding: 0.7rem 0;
-      border-bottom: 1px solid #dbecd6;
-      font-size: 0.98rem;
+      border-bottom: 1px solid #edf5ea;
+      font-size: 0.95rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
+      gap: 6px;
     }
 
     .historial-presidentes .ano {
       font-weight: 700;
-      color: #1f5f1f;
+      color: var(--verde-bosque);
       min-width: 110px;
+      font-size: 0.9rem;
     }
 
     .historial-presidentes .nombre-presi {
       font-weight: 500;
       color: #1c2e1c;
+      flex: 1;
     }
 
     .historial-presidentes .partido-p {
-      color: #2f5e2f;
-      font-size: 0.85rem;
-      background: #e3f0dd;
-      padding: 0.1rem 0.8rem;
-      border-radius: 20px;
-      font-weight: 600;
+      color: var(--verde-profundo);
+      font-size: 0.8rem;
+      background: #e8f5e4;
+      padding: 0.15rem 0.9rem;
+      border-radius: 30px;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-    /* ----- FOOTER ----- */
+    /* ========== SECCIÓN PALACIO / ARQUITECTURA ========== */
+    .patrimonio {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, #f1f7ec 0%, #e3efe0 100%);
+    }
+
+    .patrimonio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .patrimonio-grid .imagen-patrimonio {
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra-fuerte);
+      transition: transform 0.3s ease;
+    }
+
+    .patrimonio-grid .imagen-patrimonio:hover {
+      transform: scale(1.015);
+    }
+
+    .patrimonio-grid .imagen-patrimonio img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      aspect-ratio: 4 / 3;
+    }
+
+    .patrimonio-texto h3 {
+      font-size: 2.2rem;
+      color: var(--verde-profundo);
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .patrimonio-texto p {
+      font-size: 1.1rem;
+      color: #2d3e2d;
+      margin-bottom: 1.2rem;
+    }
+
+    .patrimonio-texto ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .patrimonio-texto ul li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.05rem;
+      color: #1e3b1e;
+    }
+
+    .patrimonio-texto ul li i {
+      color: var(--dorado);
+      font-size: 1.2rem;
+      width: 24px;
+    }
+
+    /* ========== FOOTER ========== */
     footer {
-      background-color: #152e15;
+      background: var(--verde-profundo);
       color: #d9e8d4;
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1rem 2rem 1rem;
       font-size: 0.95rem;
+    }
+
+    footer .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      opacity: 0.9;
     }
 
     footer i {
@@ -366,89 +612,132 @@
       margin: 0 6px;
     }
 
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 800px) {
+    footer .footer-linea {
+      width: 80px;
+      height: 2px;
+      background: var(--dorado);
+      margin: 1.2rem auto;
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
       .liderazgo-grid {
         grid-template-columns: 1fr;
+      }
+      .patrimonio-grid {
+        grid-template-columns: 1fr;
+      }
+      .galeria-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 1.2rem;
       }
       .hero-content h1 {
         font-size: 2.8rem;
       }
       .hero {
-        min-height: 500px;
+        min-height: 520px;
       }
-      .pueblo-magico h2, .liderazgo h2 {
-        font-size: 2.2rem;
+      .hero-logo {
+        width: 75px;
       }
-    }
-
-    @media (max-width: 500px) {
-      .container {
-        padding: 0 1.2rem;
+      .section-title {
+        font-size: 2rem;
       }
       .requisito-card {
-        padding: 1.5rem;
+        padding: 1.6rem;
       }
-      .hero-content .tagline {
+      .presidente-destacado {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nota-pueblo {
         font-size: 1rem;
-        padding: 0.6rem 1.2rem;
+        padding: 1.4rem 1.6rem;
+        border-radius: 30px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO con imagen del Popocatépetl desde Atlautla -->
+  <!-- ========== HERO con popohero.jpg ========== -->
   <section class="hero">
     <div class="hero-content">
+      <!-- Logotipo en el hero -->
+      <img src="atlautlalogo.jpg" alt="Logotipo de Atlautla" class="hero-logo">
       <h1>Atlautla</h1>
       <div class="subtitle">Estado de México · Faldas del Popocatépetl</div>
       <div class="tagline">
         <i class="fas fa-mountain"></i> “Lugar donde abundan las barrancas”
       </div>
+      <a href="#pueblo-magico" class="hero-cta">
+        <i class="fas fa-star"></i> Rumbo a Pueblo Mágico
+      </a>
     </div>
   </section>
 
-  <!-- SECCIÓN PUEBLO MÁGICO con requisitos -->
-  <section class="pueblo-magico">
+  <!-- ========== GALERÍA DESTACADA: arcos.jpg y palacioatlautla.jpg ========== -->
+  <section class="galeria-destacada">
     <div class="container">
-      <h2>Convirtiendo a Atlautla en Pueblo Mágico</h2>
+      <h2 class="section-title">Rincones con historia</h2>
+      <p class="section-subhead">Arquitectura y paisajes que cuentan la historia de Atlautla</p>
+
+      <div class="galeria-grid">
+        <!-- Arcos -->
+        <div class="galeria-item">
+          <img src="arcos.jpg" alt="Arcos históricos de Atlautla">
+          <div class="caption"><i class="fas fa-archway"></i> Los Arcos · Testigos del pasado</div>
+        </div>
+        <!-- Palacio municipal -->
+        <div class="galeria-item">
+          <img src="palacioatlautla.jpg" alt="Palacio Municipal de Atlautla">
+          <div class="caption"><i class="fas fa-landmark"></i> Palacio Municipal · Centro de gobierno</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECCIÓN PUEBLO MÁGICO con requisitos ========== -->
+  <section class="pueblo-magico" id="pueblo-magico">
+    <div class="container">
+      <h2 class="section-title">Convirtiendo a Atlautla en Pueblo Mágico</h2>
       <p class="section-subhead">
         Un sueño que avanza con la riqueza natural, cultural e histórica del municipio.
       </p>
 
       <div class="requisitos-grid">
-        <!-- Requisito 1 -->
         <div class="requisito-card">
           <i class="fas fa-landmark"></i>
           <h3>Patrimonio cultural</h3>
           <p>Contar con un legado histórico y cultural relevante: zonas arqueológicas, templos coloniales, fiestas y tradiciones únicas.</p>
         </div>
-        <!-- Requisito 2 -->
         <div class="requisito-card">
           <i class="fas fa-tree"></i>
           <h3>Riqueza natural</h3>
           <p>Entorno natural privilegiado, como las faldas del Popocatépetl, bosques, barrancas y paisajes que atraen al turismo.</p>
         </div>
-        <!-- Requisito 3 -->
         <div class="requisito-card">
           <i class="fas fa-hotel"></i>
           <h3>Infraestructura turística</h3>
           <p>Servicios de hospedaje, gastronomía, guías y señalización que garanticen una experiencia cómoda y segura.</p>
         </div>
-        <!-- Requisito 4 -->
         <div class="requisito-card">
           <i class="fas fa-hand-holding-heart"></i>
           <h3>Participación comunitaria</h3>
           <p>Compromiso de la población y autoridades para preservar el patrimonio, limpieza, seguridad y promoción turística.</p>
         </div>
-        <!-- Requisito 5 -->
         <div class="requisito-card">
           <i class="fas fa-file-alt"></i>
           <h3>Plan de desarrollo turístico</h3>
           <p>Documento rector que incluya diagnóstico, estrategias, metas y acciones para el desarrollo sostenible del municipio.</p>
         </div>
-        <!-- Requisito 6 -->
         <div class="requisito-card">
           <i class="fas fa-calendar-check"></i>
           <h3>Agenda cultural anual</h3>
@@ -462,40 +751,66 @@
     </div>
   </section>
 
-  <!-- SECCIÓN LIDERAZGO / GOBIERNO MUNICIPAL -->
+  <!-- ========== SECCIÓN PATRIMONIO (palacioatlautla + arcos contexto) ========== -->
+  <section class="patrimonio">
+    <div class="container">
+      <div class="patrimonio-grid">
+        <div class="imagen-patrimonio">
+          <img src="palacioatlautla.jpg" alt="Palacio Municipal de Atlautla">
+        </div>
+        <div class="patrimonio-texto">
+          <h3>Un municipio con identidad</h3>
+          <p>
+            Atlautla combina la majestuosidad del Popocatépetl con una riqueza arquitectónica y cultural que lo distingue en el oriente del Estado de México.
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Palacio Municipal, corazón administrativo</li>
+            <li><i class="fas fa-check-circle"></i> Los Arcos, memoria viva del pasado</li>
+            <li><i class="fas fa-check-circle"></i> Templos y tradiciones centenarias</li>
+            <li><i class="fas fa-check-circle"></i> Paisajes únicos bajo el volcán</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECCIÓN LIDERAZGO / GOBIERNO MUNICIPAL ========== -->
   <section class="liderazgo">
     <div class="container">
-      <h2>Liderazgo y Gobierno Municipal</h2>
+      <h2 class="section-title">Liderazgo y Gobierno Municipal</h2>
       <p class="section-subhead">Autoridades que trabajan por el desarrollo de Atlautla</p>
 
       <div class="liderazgo-grid">
-        <!-- Columna izquierda: Presidente y cabildo -->
+        <!-- Columna izquierda -->
         <div class="info-gobierno">
           <h3><i class="fas fa-user-tie"></i> Presidente Municipal</h3>
           <div class="presidente-destacado">
-            <div class="nombre">Lucas Torres Rosales</div>
-            <div class="periodo">Periodo 2024 – 2027</div>
-            <div class="partido">Presidente en funciones</div>
+            <img src="atlautlalogo.jpg" alt="Escudo de Atlautla" class="foto-palacio">
+            <div class="info-texto">
+              <div class="nombre">Lucas Torres Rosales</div>
+              <div class="periodo">Periodo 2024 – 2027</div>
+              <div class="partido">Presidente en funciones</div>
+            </div>
           </div>
 
-          <h3 style="font-size: 1.5rem; margin-top: 1.5rem;"><i class="fas fa-users"></i> Cabildo</h3>
+          <h3 style="font-size: 1.5rem; margin-top: 1.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-users"></i> Cabildo</h3>
           <ul class="cabildo-lista">
             <li><i class="fas fa-check-circle"></i> 1 Síndico Municipal</li>
             <li><i class="fas fa-check-circle"></i> 10 Regidores: 6 por mayoría relativa</li>
             <li><i class="fas fa-check-circle"></i> 4 Regidores por representación proporcional</li>
             <li><i class="fas fa-check-circle"></i> Período de tres años, no reelegibles de forma consecutiva</li>
           </ul>
-          <p style="margin-top: 1rem; font-size: 0.95rem; background: #e3f0dd; padding: 0.8rem 1rem; border-radius: 16px;">
-            <i class="fas fa-info-circle"></i> El Ayuntamiento inicia funciones el 1 de enero del año siguiente a la elección.
+          <p style="margin-top: 1.2rem; font-size: 0.95rem; background: #e8f5e4; padding: 0.9rem 1.2rem; border-radius: 18px; color: #1e3b1e;">
+            <i class="fas fa-info-circle" style="color: var(--verde-vivo);"></i> El Ayuntamiento inicia funciones el 1 de enero del año siguiente a la elección.
           </p>
         </div>
 
-        <!-- Columna derecha: Historial de presidentes -->
+        <!-- Columna derecha: Historial -->
         <div class="historial-presidentes">
           <h3><i class="fas fa-history"></i> Presidentes Municipales</h3>
           <ul>
             <li><span class="ano">2022 – 2024</span> <span class="nombre-presi">Raúl Navarro Rivera</span> <span class="partido-p">PRD</span></li>
-            <li><span class="ano">2018 – 2021</span> <span class="nombre-presi">Dolores Hermenegildo Lozada Amaro</span> <span class="partido-p">VIA RADICAL/MORENA</span></li>
+            <li><span class="ano">2018 – 2021</span> <span class="nombre-presi">Dolores Hermenegildo Lozada Amaro</span> <span class="partido-p">MORENA</span></li>
             <li><span class="ano">2015 – 2018</span> <span class="nombre-presi">Mauro Sánchez Marín</span> <span class="partido-p">PRI</span></li>
             <li><span class="ano">2012 – 2015</span> <span class="nombre-presi">Raúl Navarro Rivera</span> <span class="partido-p">PAN</span></li>
             <li><span class="ano">2009 – 2012</span> <span class="nombre-presi">María del Carmen Carreño García</span> <span class="partido-p">PRI</span></li>
@@ -512,13 +827,16 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ========== FOOTER ========== -->
   <footer>
+    <img src="atlautlalogo.jpg" alt="Escudo de Atlautla" class="footer-logo">
     <p><i class="fas fa-mountain"></i> Atlautla, Estado de México — “Lugar donde abundan las barrancas” <i class="fas fa-mountain"></i></p>
-    <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">
+    <div class="footer-linea"></div>
+    <p style="font-size: 0.9rem; opacity: 0.75;">
       Información basada en datos oficiales y en la riqueza cultural de la región.
     </p>
   </footer>
 
 </body>
 </html>
+```
